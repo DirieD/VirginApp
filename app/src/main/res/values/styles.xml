@@ -1,0 +1,65 @@
+<resources>
+
+
+
+    <!-- For rounded corner of image. -->
+    <style name="rounded_image_style">te
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+        <item name="color">@color/white</item>
+    </style>
+
+    <style name="text_style">te
+        <item name="fontFamily">@font/courgette</item>
+        <item name="cornerSize">10dp</item>
+        <item name="color">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+
+    </style>
+    <style name="text_style_one">te
+        <item name="fontFamily">@font/courgette</item>
+        <item name="cornerSize">10dp</item>
+        <item name="color">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+
+    </style>
+    <style name="text_style_two">te
+        <item name="fontFamily">@font/courgette</item>
+        <item name="cornerSize">10dp</item>
+        <item name="color">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+
+</resources>
