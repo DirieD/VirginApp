@@ -34,12 +34,20 @@ class RoomsFragment : Fragment() {
         val recycleView = binding.recycleViewPeople
         mAdapter = RoomsAdapter()
         recycleView.adapter = mAdapter
+        observeRoomsData()
+        binding.slPeople.setOnRefreshListener {
+            observeRoomsData()
+        }
+
+        return binding.root
+    }
+
+    private fun observeRoomsData() {
         viewModel.getRooms()
         viewModel.getAllRooms.observe(viewLifecycleOwner) {rooms->
             mAdapter.setData(rooms)
         }
 
-        return binding.root
     }
 
 

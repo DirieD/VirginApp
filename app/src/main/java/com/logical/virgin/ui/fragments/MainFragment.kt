@@ -8,15 +8,18 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.logical.virgin.adapter.ViewPagerAdapter
 import com.logical.virgin.databinding.FragmentMainBinding
+import com.logical.virgin.util.Constants.Companion.PEOPLE
+import com.logical.virgin.util.Constants.Companion.ROOMS
 
 class MainFragment : Fragment() {
 
-    private lateinit var binding: FragmentMainBinding
+    private  var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainBinding.inflate(inflater)
+        _binding = FragmentMainBinding.inflate(inflater)
         return binding.root
     }
 
@@ -31,12 +34,16 @@ class MainFragment : Fragment() {
         TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
 
             when (position) {
-                0 -> tab.text = "People"
-                1 -> tab.text = "Rooms"
+                0 -> tab.text = PEOPLE
+                1 -> tab.text = ROOMS
             }
         }.attach()
     }
 
+    override fun onDestroy() {
+        _binding=null
+        super.onDestroy()
+    }
 
 
 }
