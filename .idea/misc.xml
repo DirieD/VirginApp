@@ -4,9 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/download.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/facebook.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/gradient.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_error_placeholder.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/instagram.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/twitter.xml" value="0.1595" />
+        <entry key="app/src/main/res/font/courgette.xml" value="0.2953703703703704" />
         <entry key="app/src/main/res/font/roboto.xml" value="0.2953703703703704" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2875" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.3046875" />
@@ -20,6 +26,7 @@
         <entry key="app/src/main/res/layout/item_people.xml" value="0.3046875" />
         <entry key="app/src/main/res/layout/item_view.xml" value="0.3046875" />
         <entry key="app/src/main/res/layout/item_view_people.xml" value="0.3046875" />
+        <entry key="app/src/main/res/layout/profile_layout.xml" value="0.25510204081632654" />
       </map>
     </option>
   </component>
