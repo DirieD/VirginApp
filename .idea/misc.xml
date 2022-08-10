@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_email.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_error_placeholder.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1595" />
         <entry key="app/src/main/res/font/roboto.xml" value="0.2953703703703704" />
@@ -13,8 +14,12 @@
         <entry key="app/src/main/res/layout/fragment_profile_details.xml" value="0.3046875" />
         <entry key="app/src/main/res/layout/fragment_room.xml" value="0.2875" />
         <entry key="app/src/main/res/layout/fragment_rooms.xml" value="0.2875" />
+        <entry key="app/src/main/res/layout/item_email.xml" value="0.3046875" />
+        <entry key="app/src/main/res/layout/item_image.xml" value="0.3046875" />
+        <entry key="app/src/main/res/layout/item_info.xml" value="0.3046875" />
         <entry key="app/src/main/res/layout/item_people.xml" value="0.3046875" />
         <entry key="app/src/main/res/layout/item_view.xml" value="0.3046875" />
+        <entry key="app/src/main/res/layout/item_view_people.xml" value="0.3046875" />
       </map>
     </option>
   </component>

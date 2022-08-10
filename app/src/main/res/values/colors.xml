@@ -11,7 +11,9 @@
     <color name="colorPrimaryDark">#5502C8</color>
     <color name="colorAccent">#9D46FF</color>
 
+
     <color name="white">#FFFFFF</color>
+    <color name="blue">#4169e1</color>
     <color name="lightGray">#F9F9F9</color>
     <color name="lightMediumGray">#80D1D1D1</color>
     <color name="darkGray">#4B4B4B</color>
@@ -28,6 +30,11 @@
     <color name="chipBackgroundColor">@color/lightGray</color>
     <color name="checkedChipTextColor">@color/colorPrimary</color>
     <color name="chipTextColor">@color/darkGray</color>
+    <color name="mainColor">#843A3A</color>
+    <color name="colorMobileText">#605E5E</color>
+    <color name="colorJobTitle">#5C5A5A</color>
+    <color name="colorLine">#79D6D1D1</color>
+    <color name="colorCard">#ffcccb</color>
 
 
     //Details Activity

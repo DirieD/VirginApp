@@ -20,9 +20,22 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.main_nav_container) as NavHostFragment
         navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
+        hideActionBar()
         setContentView(binding.root)
     }
 
     override fun onSupportNavigateUp(): Boolean =
         navController.navigateUp() || super.onSupportNavigateUp()
+
+    private fun hideActionBar() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.mainFragment) {
+                supportActionBar?.hide()
+            }
+            else {
+                supportActionBar?.show()
+            }
+        }
+    }
+
 }

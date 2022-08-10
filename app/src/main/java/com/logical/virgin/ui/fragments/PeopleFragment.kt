@@ -4,18 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.logical.virgin.R
+import com.logical.virgin.adapter.ItemClicked
 import com.logical.virgin.adapter.PeopleAdapter
 import com.logical.virgin.databinding.FragmentPeopleBinding
 import com.logical.virgin.models.people.PeopleModelItem
 import com.logical.virgin.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class PeopleFragment : Fragment() {
     private var responsePeople = emptyList<PeopleModelItem>()
-    private var mAdapter=PeopleAdapter()
+    private lateinit var mAdapter: PeopleAdapter
 
     private var _binding: FragmentPeopleBinding? = null
     private val binding get() = _binding!!
@@ -30,10 +35,20 @@ class PeopleFragment : Fragment() {
         _binding = FragmentPeopleBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
         val recycleView = binding.recycleViewPeople
-        recycleView.adapter=mAdapter
-        viewModel.getPeople()
 
-        viewModel.getAllPeople.observe(viewLifecycleOwner){
+        viewModel.getPeople()
+        viewModel.getAllPeople.observe(viewLifecycleOwner) {
+
+            mAdapter = PeopleAdapter(object : ItemClicked {
+                override fun onItemClicked(currentPerson: PeopleModelItem) {
+
+                    val data = bundleOf("DATA" to currentPerson)
+                    findNavController().navigate(
+                        R.id.action_mainFragment_to_profileDetailsFragment, data
+                    )
+                }
+            })
+            recycleView.adapter = mAdapter
             mAdapter.setData(it)
 
         }

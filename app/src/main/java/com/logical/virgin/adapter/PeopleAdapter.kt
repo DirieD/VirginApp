@@ -9,7 +9,7 @@ import com.logical.virgin.models.people.PeopleModelItem
 import com.logical.virgin.util.DataDiffUtil
 
 
-class PeopleAdapter : RecyclerView.Adapter<PeopleAdapter.MyViewHolder>() {
+class PeopleAdapter(private val listener:ItemClicked) : RecyclerView.Adapter<PeopleAdapter.MyViewHolder>() {
     private var people = emptyList<PeopleModelItem>()
 
     class MyViewHolder(private val binding: ItemViewPeopleBinding) :
@@ -35,6 +35,7 @@ class PeopleAdapter : RecyclerView.Adapter<PeopleAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
        val currentPerson=people[position]
         holder.bind(currentPerson)
+        listener.onItemClicked(currentPerson)
 
     }
 
@@ -47,4 +48,8 @@ class PeopleAdapter : RecyclerView.Adapter<PeopleAdapter.MyViewHolder>() {
         people=newData
         diffUtilResult.dispatchUpdatesTo(this)
     }
+}
+
+interface ItemClicked {
+ fun  onItemClicked(currentPerson: PeopleModelItem)
 }
