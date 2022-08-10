@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -19,9 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PeopleFragment : Fragment() {
-    private var responsePeople = emptyList<PeopleModelItem>()
     private lateinit var mAdapter: PeopleAdapter
-
     private var _binding: FragmentPeopleBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: MainViewModel
@@ -41,10 +38,10 @@ class PeopleFragment : Fragment() {
 
             mAdapter = PeopleAdapter(object : ItemClicked {
                 override fun onItemClicked(currentPerson: PeopleModelItem) {
-
-                    val data = bundleOf("DATA" to currentPerson)
+                    val args = Bundle()
+                    args.putParcelable("information", currentPerson)
                     findNavController().navigate(
-                        R.id.action_mainFragment_to_profileDetailsFragment, data
+                        R.id.action_mainFragment_to_profileDetailsFragment,args
                     )
                 }
             })
