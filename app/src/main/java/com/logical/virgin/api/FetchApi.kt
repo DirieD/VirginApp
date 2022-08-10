@@ -11,6 +11,6 @@ interface FetchApi {
     suspend fun getPeople(): Response<List<PeopleModelItem>>
 
     @GET("rooms")
-    suspend fun getRooms():Response<RoomsModelItem>
+    suspend fun getRooms():Response<List<RoomsModelItem>>
 
 }

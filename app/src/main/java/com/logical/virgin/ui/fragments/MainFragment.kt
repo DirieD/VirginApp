@@ -29,6 +29,7 @@ class MainFragment : Fragment() {
         val adapter = ViewPagerAdapter(childFragmentManager, lifecycle)
         binding.pager.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
+
             when (position) {
                 0 -> tab.text = "People"
                 1 -> tab.text = "Rooms"

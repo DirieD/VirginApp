@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.logical.virgin.R
 import com.logical.virgin.adapter.ItemClicked
 import com.logical.virgin.adapter.PeopleAdapter
+import com.logical.virgin.adapter.RoomsAdapter
 import com.logical.virgin.databinding.FragmentPeopleBinding
 import com.logical.virgin.models.people.PeopleModelItem
 import com.logical.virgin.viewModels.MainViewModel

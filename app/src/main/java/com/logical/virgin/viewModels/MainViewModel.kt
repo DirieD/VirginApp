@@ -19,8 +19,8 @@ class MainViewModel @Inject constructor(
 
     private val _getAllPeople = MutableLiveData<List<PeopleModelItem>>()
     val getAllPeople: LiveData<List<PeopleModelItem>> get() = _getAllPeople
-    private val _getAllRooms = MutableLiveData<RoomsModelItem>()
-    val getAllRooms: LiveData<RoomsModelItem> get() = _getAllRooms
+    private val _getAllRooms = MutableLiveData<List<RoomsModelItem>>()
+    val getAllRooms: LiveData<List<RoomsModelItem>> get() = _getAllRooms
 
     fun getPeople()=
         CoroutineScope(Dispatchers.IO).launch {
