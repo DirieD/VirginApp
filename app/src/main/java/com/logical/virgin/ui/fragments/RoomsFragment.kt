@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.logical.virgin.R
 import com.logical.virgin.adapter.ItemClicked
@@ -14,7 +16,7 @@ import com.logical.virgin.databinding.FragmentPeopleBinding
 import com.logical.virgin.databinding.FragmentRoomsBinding
 import com.logical.virgin.models.people.PeopleModelItem
 import com.logical.virgin.viewModels.MainViewModel
-
+import kotlinx.coroutines.launch
 
 
 class RoomsFragment : Fragment() {
@@ -34,7 +36,11 @@ class RoomsFragment : Fragment() {
         val recycleView = binding.recycleViewPeople
         mAdapter = RoomsAdapter()
         recycleView.adapter = mAdapter
-        observeRoomsData()
+
+        if (viewModel.hasInternetConnection())
+            observeRoomsData()
+        else
+            observeDataFromDB()
         binding.slPeople.setOnRefreshListener {
             observeRoomsData()
         }
@@ -50,5 +56,18 @@ class RoomsFragment : Fragment() {
 
     }
 
+    private fun observeDataFromDB() {
+        lifecycleScope.launch {
+            viewModel.readRooms.observe(viewLifecycleOwner) {
+                if (it.isNotEmpty()) {
+                    Toast.makeText(context, "Data coming from local data base", Toast.LENGTH_SHORT).show()
+                    mAdapter.setData(it[0].roomsModel)
+                } else {
+                    Toast.makeText(context, "No Internet & Database is empty", Toast.LENGTH_SHORT).show()
 
+                }
+
+            }
+        }
+    }
 }

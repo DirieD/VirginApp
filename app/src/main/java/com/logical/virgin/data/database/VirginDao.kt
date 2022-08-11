@@ -16,7 +16,7 @@ import retrofit2.http.GET
 interface VirginDao {
 
 
-  /*  //For People
+    //For People
     @Query("SELECT* FROM people_table ORDER BY id  ASC")
     fun readPeople(): Flow<List<PeopleEntity>>
 
@@ -30,6 +30,5 @@ interface VirginDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertRooms(roomsEntity: RoomsEntity)
-*/
 
 }

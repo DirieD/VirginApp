@@ -8,7 +8,6 @@ import javax.inject.Inject
 
 class LocalDataSource @Inject constructor(private val virginDao: VirginDao) {
 
-/*
     fun readPeople(): Flow<List<PeopleEntity>> {
         return virginDao.readPeople()
     }
@@ -22,6 +21,6 @@ class LocalDataSource @Inject constructor(private val virginDao: VirginDao) {
 
     suspend fun insertRoom(roomsEntity: RoomsEntity) {
        virginDao.insertRooms(roomsEntity)
-    }*/
+    }
 
 }
