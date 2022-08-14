@@ -6,7 +6,6 @@ import androidx.room.TypeConverters
 import com.logical.virgin.data.database.entities.PeopleEntity
 import com.logical.virgin.data.database.entities.RoomsEntity
 
-
 @Database(
     entities = [PeopleEntity::class, RoomsEntity::class],
     version = 1,

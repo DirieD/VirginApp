@@ -24,10 +24,7 @@ object DatabaseModule {
             DATABASE_NAME
         ).build()
 
-
     @Singleton
     @Provides
     fun provideDao(database: VirginDatabase) = database.virginDao()
-
-
 }

@@ -4,10 +4,7 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.logical.virgin.models.people.PeopleModel
-import com.logical.virgin.models.people.PeopleModelItem
 import com.logical.virgin.models.rooms.RoomsModel
-import com.logical.virgin.models.rooms.RoomsModelItem
-
 
 class VirginTypeConverter {
 

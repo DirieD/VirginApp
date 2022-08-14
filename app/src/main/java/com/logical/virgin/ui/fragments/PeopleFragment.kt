@@ -20,7 +20,6 @@ import com.logical.virgin.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-
 @AndroidEntryPoint
 class PeopleFragment : Fragment() {
     private lateinit var mAdapter: PeopleAdapter
@@ -29,9 +28,9 @@ class PeopleFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var viewModel: MainViewModel
 
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -41,18 +40,17 @@ class PeopleFragment : Fragment() {
         initializeAdapter()
         recycleView.adapter = mAdapter
 
-
-        if (viewModel.hasInternetConnection())
+        if (viewModel.hasInternetConnection()) {
             observeDataFromApi()
-        else
+        } else {
             observeDataFromDB()
+        }
 
         binding.slPeople.setOnRefreshListener {
             observeDataFromApi()
         }
 
         return binding.root
-
     }
 
     private fun observeDataFromDB() {
@@ -63,10 +61,9 @@ class PeopleFragment : Fragment() {
                         .show()
                     mAdapter.setData(it[0].peopleModel)
                 } else {
-                    Toast.makeText(context, "No Internet & Database is empty", Toast.LENGTH_SHORT).show()
-
+                    Toast.makeText(context, "No Internet & Database is empty", Toast.LENGTH_SHORT)
+                        .show()
                 }
-
             }
         }
     }
@@ -84,10 +81,10 @@ class PeopleFragment : Fragment() {
                 val args = Bundle()
                 args.putParcelable(ARGS_KEY, currentPerson)
                 findNavController().navigate(
-                    R.id.action_mainFragment_to_profileDetailsFragment, args
+                    R.id.action_mainFragment_to_profileDetailsFragment,
+                    args
                 )
             }
         })
     }
-
 }

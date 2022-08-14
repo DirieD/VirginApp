@@ -6,15 +6,12 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.* // ktlint-disable no-wildcard-imports
 import com.logical.virgin.data.database.entities.PeopleEntity
 import com.logical.virgin.data.database.entities.RoomsEntity
 import com.logical.virgin.models.people.PeopleModel
-import com.logical.virgin.models.people.PeopleModelItem
 import com.logical.virgin.models.rooms.RoomsModel
-import com.logical.virgin.models.rooms.RoomsModelItem
 import com.logical.virgin.repository.Repository
-import dagger.hilt.android.internal.Contexts.getApplication
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -33,7 +30,7 @@ class MainViewModel @Inject constructor(
     val getAllRooms: LiveData<RoomsModel> get() = _getAllRooms
 
     val readPeople: LiveData<List<PeopleEntity>> = repository.local.readPeople().asLiveData()
-   val readRooms: LiveData<List<RoomsEntity>> = repository.local.readRoom().asLiveData()
+    val readRooms: LiveData<List<RoomsEntity>> = repository.local.readRoom().asLiveData()
 
     fun getPeople() =
         CoroutineScope(Dispatchers.IO).launch {
@@ -43,16 +40,13 @@ class MainViewModel @Inject constructor(
                     response.body()?.let {
                         _getAllPeople.postValue(it)
                         saveToPeopleTable(it)
-
-
                     } ?: throw Exception("Data Null")
-                } else
+                } else {
                     throw Exception(response.errorBody()?.toString())
-
+                }
             } catch (e: Exception) {
                 Log.e("error", e.toString())
             }
-
         }
 
     private fun saveToPeopleTable(people: PeopleModel) {
@@ -75,9 +69,9 @@ class MainViewModel @Inject constructor(
                         _getAllRooms.postValue(it)
                         saveToRoomsTable(it)
                     } ?: throw Exception("Data Null")
-                } else
+                } else {
                     throw Exception(response.errorBody()?.toString())
-
+                }
             } catch (e: Exception) {
                 Log.e("error", e.toString())
             }
@@ -87,6 +81,7 @@ class MainViewModel @Inject constructor(
         val roomsEntity = RoomsEntity(rooms)
         insertRooms(roomsEntity)
     }
+
     private fun insertRooms(roomsEntity: RoomsEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertRoom(roomsEntity)

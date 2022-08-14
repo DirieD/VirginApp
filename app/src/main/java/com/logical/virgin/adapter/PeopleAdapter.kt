@@ -8,12 +8,14 @@ import com.logical.virgin.databinding.ItemViewPeopleBinding
 import com.logical.virgin.models.people.PeopleModelItem
 import com.logical.virgin.util.DataDiffUtil
 
-
 class PeopleAdapter(private val listener: ItemClicked) :
     RecyclerView.Adapter<PeopleAdapter.MyViewHolder>() {
     private var people = emptyList<PeopleModelItem>()
 
-    class MyViewHolder(private val binding: ItemViewPeopleBinding, private val listener: ItemClicked) :
+    class MyViewHolder(
+        private val binding: ItemViewPeopleBinding,
+        private val listener: ItemClicked
+    ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(person: PeopleModelItem) {
             binding.person = person
@@ -22,7 +24,6 @@ class PeopleAdapter(private val listener: ItemClicked) :
                 listener.onItemClicked(person)
             }
         }
-
 
         companion object {
             fun from(parent: ViewGroup, listener: ItemClicked): MyViewHolder {
@@ -40,8 +41,6 @@ class PeopleAdapter(private val listener: ItemClicked) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentPerson = people[position]
         holder.bind(currentPerson)
-
-
     }
 
     override fun getItemCount(): Int {

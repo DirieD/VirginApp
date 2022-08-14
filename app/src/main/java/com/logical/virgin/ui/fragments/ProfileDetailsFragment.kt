@@ -15,9 +15,9 @@ class ProfileDetailsFragment : Fragment() {
     private var _binding: ProfileLayoutBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -29,8 +29,7 @@ class ProfileDetailsFragment : Fragment() {
     }
 
     override fun onDestroy() {
-        _binding=null
+        _binding = null
         super.onDestroy()
     }
-
 }

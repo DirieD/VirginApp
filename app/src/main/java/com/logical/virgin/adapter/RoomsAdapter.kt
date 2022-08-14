@@ -8,7 +8,6 @@ import com.logical.virgin.databinding.RoomLayoutBinding
 import com.logical.virgin.models.rooms.RoomsModelItem
 import com.logical.virgin.util.DataDiffUtil
 
-
 class RoomsAdapter() :
     RecyclerView.Adapter<RoomsAdapter.MyViewHolder>() {
     private var rooms = emptyList<RoomsModelItem>()
@@ -19,7 +18,6 @@ class RoomsAdapter() :
             binding.room = room
             binding.executePendingBindings()
         }
-
 
         companion object {
             fun from(parent: ViewGroup): MyViewHolder {
@@ -37,8 +35,6 @@ class RoomsAdapter() :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentRoom = rooms[position]
         holder.bind(currentRoom)
-
-
     }
 
     override fun getItemCount(): Int {

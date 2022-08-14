@@ -1,6 +1,5 @@
 package com.logical.virgin.models.rooms
 
-
 import com.google.gson.annotations.SerializedName
 
 data class RoomsModelItem(

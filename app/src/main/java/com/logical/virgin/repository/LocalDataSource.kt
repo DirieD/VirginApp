@@ -12,15 +12,15 @@ class LocalDataSource @Inject constructor(private val virginDao: VirginDao) {
         return virginDao.readPeople()
     }
 
-    suspend fun insertPeople(peopleEntity: PeopleEntity) {
-       virginDao.insertPeople(peopleEntity)
+    fun insertPeople(peopleEntity: PeopleEntity) {
+        virginDao.insertPeople(peopleEntity)
     }
+
     fun readRoom(): Flow<List<RoomsEntity>> {
         return virginDao.readRooms()
     }
 
-    suspend fun insertRoom(roomsEntity: RoomsEntity) {
-       virginDao.insertRooms(roomsEntity)
+    fun insertRoom(roomsEntity: RoomsEntity) {
+        virginDao.insertRooms(roomsEntity)
     }
-
 }

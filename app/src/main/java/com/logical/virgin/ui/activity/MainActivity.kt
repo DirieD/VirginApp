@@ -31,11 +31,9 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.mainFragment) {
                 supportActionBar?.hide()
-            }
-            else {
+            } else {
                 supportActionBar?.show()
             }
         }
     }
-
 }

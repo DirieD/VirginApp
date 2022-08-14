@@ -12,12 +12,11 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    private const val BASE_URL="https://61e947967bc0550017bc61bf.mockapi.io/api/v1/"
-
+    private const val BASE_URL = "https://61e947967bc0550017bc61bf.mockapi.io/api/v1/"
 
     @Singleton
     @Provides
-    fun getRetrofit():Retrofit{
+    fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -29,5 +28,4 @@ object NetworkModule {
     fun getApiService(retrofit: Retrofit): FetchApi {
         return retrofit.create(FetchApi::class.java)
     }
-
 }
